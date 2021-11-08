@@ -17,7 +17,7 @@ public class Solver implements AM
 		 mainTask.addJarFile("Solver.jar");
 		 mainTask.addJarFile("BigStepBabyStep.jar");
 	     
-		 (new Fibon()).run(new AMInfo(mainTask, (channel)null));
+		 (new Solver()).run(new AMInfo(mainTask, (channel)null));
 	     mainTask.end();
 	}
 	
@@ -79,8 +79,8 @@ public class Solver implements AM
 			r.add(tr);
 		}
 		
-		List <Point> points = new ArrayList<point>();
-		List <Channel> channels = new ArrayList<channel>();
+		List <point> points = new ArrayList<point>();
+		List <channel> channels = new ArrayList<channel>();
 		
 		for(BigInteger i = BigInteger.valueOf(0); i.compareTo(nThreads) == -1; i = i.add(BigInteger.valueOf(1)))
 		{
