@@ -44,7 +44,7 @@ public class Solver implements AM
 		
 		long tStart = System.nanoTime();
 		
-		long res = solve(2l, la, lb, lp);
+		long res = solve(info, 2l, la, lb, lp);
 		
 		long tEnd = System.nanoTime();
 		
@@ -61,7 +61,7 @@ public class Solver implements AM
 		System.out.println("time = " + ((tEnd - tStart) / 1000000) + "ms");
 	}
 	
-	static public long solve(long lnThread, long la, long lb, long lp)
+	static public long solve(AMInfo info, long lnThread, long la, long lb, long lp)
 	{		
 		List<BigInteger> l = new ArrayList<BigInteger>();
 		List<BigInteger> r = new ArrayList<BigInteger>();
