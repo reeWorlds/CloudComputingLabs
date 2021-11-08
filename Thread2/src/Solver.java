@@ -92,11 +92,6 @@ public class Solver implements AM
 			points.add(info.createPoint());
 			channels.add(points.get(ii).createChannel());
 			
-			
-			//BigInteger tSol = solveSqrt1_parallel(a, b, p, l.get(i.intValue()), r.get(i.intValue()));
-			
-			//sol.add(tSol);
-			
 			points.get(ii).execute("BigStepBabyStep");
 		    
 			channels.get(ii).write(la);
@@ -105,11 +100,11 @@ public class Solver implements AM
 			channels.get(ii).write(tl.longValue());
 			channels.get(ii).write(tr.longValue());
 		    
-			long tr = channels.get(ii).readLong();
-		    sol.add(tr); 
+			long tempRes = channels.get(ii).readLong();
+		    sol.add(tempRes);
 		}
 		
-		for(long i = 0; i < lnThread; i++)
+		for(int i = 0; i < lnThread; i++)
 		{
 			sol.add(channels.get(i).readLong());
 		}
