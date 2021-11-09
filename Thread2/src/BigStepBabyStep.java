@@ -25,7 +25,9 @@ public class BigStepBabyStep implements AM{
 		
 		HashMap<BigInteger, BigInteger> mp = new HashMap<BigInteger, BigInteger>();
 		
+		BigInteger maxRoot = BigInteger.valueOf(2500000);
 		BigInteger root = p.sqrt();
+		root = root.min(maxRoot);
 		
 		// make map
 		BigInteger x;
