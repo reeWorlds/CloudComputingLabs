@@ -14,7 +14,7 @@ public class Solver implements AM
 		task mainTask = new task();
 		 
 		mainTask.addJarFile("Solver.jar");
-		mainTask.addJarFile("Factorozer.jar");
+		mainTask.addJarFile("Factorizer.jar");
 		
 		System.out.print("class Solver method main added jars\n");
 	     
@@ -79,7 +79,7 @@ public class Solver implements AM
 			points.add(info.createPoint());
 			channels.add(points.get(ii).createChannel());
 			
-			points.get(ii).execute("Factorozer");
+			points.get(ii).execute("Factorizer");
 		    
 			channels.get(ii).write(ln);
 			channels.get(ii).write(tl.longValue());

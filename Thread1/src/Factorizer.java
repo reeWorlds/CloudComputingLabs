@@ -3,7 +3,7 @@ import java.util.*;
 
 import parcs.*;
 
-public class Factorozer implements AM{
+public class Factorizer implements AM{
 	public void run(AMInfo info)
 	{
 		long ln, ll, lr;
