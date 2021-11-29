@@ -1,0 +1,33 @@
+web console:
+gcloud config set project quad-residual-pq
+gcloud config set compute/zone europe-north1-a
+gcloud config set compute/region europe-north1
+gcloud compute instances create hosts-server daemon-1 daemon-2 daemon-3 daemon-4 app
+gcloud compute firewall-rules create allow-all --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
+
+daemon console:
+sudo apt-get update
+sudo apt-get install -y openjdk-11-jdk
+sudo apt-get install wget
+wget https://github.com/lionell/labs/raw/master/parcs/Daemon/Daemon.jar
+java -jar Daemon.jar&
+
+host-server console:
+sudo apt-get update
+sudo apt-get install -y openjdk-11-jdk
+touch hosts.list
+echo 10.166.0.4 >> hosts.list     (!) change adress here
+echo 10.166.0.3 >> hosts.list     (!) change adress here
+echo 10.166.0.7 >> hosts.list     (!) change adress here
+echo 10.166.0.5 >> hosts.list     (!) change adress here
+sudo apt-get install wget
+wget https://github.com/lionell/labs/raw/master/parcs/HostsServer/TCPHostsServer.jar
+java -jar TCPHostsServer.jar&
+
+app console:
+sudo apt-get update
+sudo apt-get install -y openjdk-11-jdk git make
+git clone https://github.com/reeWorlds/CloudComputingLabs.git
+cd parcsLab/Thread2/
+echo 10.166.0.6 > out/server      (!) change adress here
+make
