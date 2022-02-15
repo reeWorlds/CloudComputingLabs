@@ -7,11 +7,11 @@ gcloud config set compute/region europe-west2
 gcloud compute firewall-rules create allow-all --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
 
 gcloud compute instances create-with-container master --container-image=registry.hub.docker.com/hummer12007/parcs-node --container-env PARCS_ARGS="master"
-gcloud compute instances create-with-container worker1 worker2 worker3 worker4 --container-image=hummer12007/parcs-node --container-env PARCS_ARGS="worker 10.164.0.2"
+gcloud compute instances create-with-container worker1 worker2 worker3 worker4 --container-image=hummer12007/parcs-node --container-env PARCS_ARGS="worker 10.154.0.6"
 
 gcloud compute ssh master
 docker ps
 
-http://34.91.154.159:8080
+http://34.89.89.211:8080
 
 gcloud compute instances delete master worker1 worker2 worker3 worker4
